@@ -4,6 +4,7 @@
     {
         private string _firstName;
         private string _lastName;
+        private List<Employee> _list;
 
         public string FirstName
         {
@@ -29,6 +30,7 @@
         public Employee() // default olarak mevcut
         {
             System.Console.WriteLine("Yapılandırıcı method çalıştı...");
+            _list = new List<Employee>();
         }
 
         public Employee(string firstName, string lastName, int age)
@@ -43,6 +45,16 @@
             return $"{FirstName,-20} {LastName,-15} {Age, 5}";
             // - ifadeler sola, + ifadeler sağa yaslama
             // içerdeki sayılar karakter sayısı kadar boşluk oluşturma
+        }
+
+        public void Add(Employee employee)
+        {
+            _list.Add(employee);
+        }
+
+        public void AddRange(params Employee[] employees)
+        {
+            _list.AddRange(employees);
         }
     }
 }
